@@ -338,6 +338,7 @@ public class DataStructureTester extends Application {
         MenuItem miSequentialSearch = new MenuItem("Sequential Search");
         miSequentialSearch.setOnAction(e -> {
             int[] nums = text2IntArray(taData.getText());
+            MyTimer.startMicroTime();
             try {
                 sequentialSearch(nums);
             } catch (ParseException ex) {
@@ -354,6 +355,7 @@ public class DataStructureTester extends Application {
         MenuItem miBinarySearch = new MenuItem("Binary Search");
         miBinarySearch.setOnAction(e -> {
             int[] nums = text2IntArray(taData.getText());
+            MyTimer.startMicroTime();
             try {
                 binarySearch(nums);
             } catch (ParseException ex) {
