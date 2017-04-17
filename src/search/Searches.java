@@ -66,24 +66,24 @@ public class Searches {
         NumberFormat removeComma = NumberFormat.getNumberInstance(Locale.US);
         int parsedInt = removeComma.parse(userInput).intValue();
 
-        int lowerBound = 0;
-        int upperBound = a.length - 1;
-        int curIn;
-        while (true) {
-            curIn = (lowerBound + upperBound) / 2;
-            if (parsedInt == a[curIn]) {
+        int low = 0;
+        int high = a.length - 1;
+        boolean numberFound = false;
+
+        while (high + 1 > low) {
+            int middle = (low + high) / 2;
+            if (a[middle] == parsedInt) {
                 binarySearchOutput += "Number found: " + parsedInt;
+                numberFound = true;
                 break;
-            } else if (lowerBound > upperBound) {
-                binarySearchOutput += "Number not found: " + parsedInt;
-                break;
-            } else {
-                if (parsedInt > 0 && curIn > 0) {
-                    lowerBound = curIn + 1; // it's in upper half
-                } else {
-                    upperBound = curIn - 1; // it's in lower half
-                }
+            } else if (a[middle] < parsedInt) {
+                low = middle + 1;
+            } else if (a[middle] > parsedInt) {
+                high = middle - 1;
             }
+        }
+        if (numberFound == false) {
+            binarySearchOutput += "Number not found: " + parsedInt;
         }
     }
 

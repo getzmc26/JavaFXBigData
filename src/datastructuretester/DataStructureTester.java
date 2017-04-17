@@ -355,6 +355,7 @@ public class DataStructureTester extends Application {
         MenuItem miBinarySearch = new MenuItem("Binary Search");
         miBinarySearch.setOnAction(e -> {
             int[] nums = text2IntArray(taData.getText());
+            mergeSort(nums, "A");
             MyTimer.startMicroTime();
             try {
                 binarySearch(nums);
@@ -434,7 +435,7 @@ public class DataStructureTester extends Application {
     }
 
     public void generateIntegers() throws ParseException {
-        TextInputDialog integersAlert = new TextInputDialog("10,000");
+        TextInputDialog integersAlert = new TextInputDialog("1,000");
         integersAlert.getDialogPane().lookupButton(ButtonType.CANCEL).setVisible(false);
         integersAlert.initStyle(StageStyle.TRANSPARENT);
 
@@ -456,7 +457,7 @@ public class DataStructureTester extends Application {
     }
 
     public void generateRandomIntegers() throws ParseException {
-        TextInputDialog integersAlert = new TextInputDialog("10,000");
+        TextInputDialog integersAlert = new TextInputDialog("1,000");
         integersAlert.getDialogPane().lookupButton(ButtonType.CANCEL).setVisible(false);
         integersAlert.initStyle(StageStyle.TRANSPARENT);
 
